@@ -5,6 +5,7 @@ import com.example.demo.model.ShipData;
 import com.example.demo.service.ShipEventService;
 import com.example.demo.service.interfaces.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -26,7 +27,7 @@ public class ShipController {
 
     @GetMapping("/rotterdam")
     public ResponseEntity<List<ShipData>> getShipListInRotterdam(){
-        return new ResponseEntity<>(shipEventService.getShipLists(true), HttpStatus.OK);
+        return new ResponseEntity<>(shipEventService.getShipLists(false), HttpStatus.OK);
     }
 
     @GetMapping("/rotterdam/events")

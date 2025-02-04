@@ -19,9 +19,14 @@ public class PortEventRepositoryTest {
     @Autowired
     private PortEventRepository portEventRepository;
 
-
     @Test
     void shouldBeAbleToSaveAndFetchData() {
+
+        portEventRepository.deleteAllInBatch();
+
+        List<PortEventEntity> initial = portEventRepository.findAll();
+        assertEquals(0, initial.size());
+
         PortEventEntity portEventEntity1 = new PortEventEntity();
         portEventEntity1.setPortName("ROTTERDAM");
         portEventEntity1.setEventType(EventType.ENTER);

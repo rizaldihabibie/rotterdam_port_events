@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.util.concurrent.TimeUnit;
+
 @Configuration
 public class ApplicationConfig {
 
@@ -17,7 +19,11 @@ public class ApplicationConfig {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor);
+
         return new Retrofit.Builder()
                 .baseUrl("https://backenddev.teqplay.nl/")
                 .addConverterFactory(GsonConverterFactory.create())
