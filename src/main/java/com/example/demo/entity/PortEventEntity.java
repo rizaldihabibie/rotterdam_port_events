@@ -24,7 +24,6 @@ public class PortEventEntity {
     @NotNull
     private String portName;
 
-    @NotNull
     private String shipName;
 
     @NotNull
