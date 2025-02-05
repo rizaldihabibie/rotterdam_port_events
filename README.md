@@ -51,9 +51,9 @@ To build the project, follow these steps:
 
 After the build completes successfully, you can find the packaged application in the `target` directory:
 
-- For a JAR project: `target/Demo-0.0.1-SNAPSHOT.jar`
+- For a JAR project: `target/demo-0.0.1-SNAPSHOT.jar`
 
 ## Run the Application
 
 ```bash
-java -jar target/Demo-0.0.1-SNAPSHOT.jar
+java -jar target/demo-0.0.1-SNAPSHOT.jar
